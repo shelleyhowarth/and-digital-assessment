@@ -1,11 +1,14 @@
-.contact-card {
-  max-width: 50%;
-  max-height: 50%;
+@import "../../styles-variables.scss";
 
+.contact-card {
+  max-width: 65%;
+  min-height: 45%;
+  height: auto;
+  width: auto;
   background-color: white;
   color: black;
   margin: auto;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .header {
@@ -21,5 +24,11 @@
 .row {
   display: grid;
   margin-left: auto;
+}
+
+.submit {
+  background-color: $primary;
+  color: white;
+  width: 50%;
 }
 
