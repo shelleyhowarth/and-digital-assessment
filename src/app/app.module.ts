@@ -26,12 +26,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ContactService } from './services/contact.service';
+import { NgImageSliderModule } from 'ng-image-slider';
 
-
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-];
 
 @NgModule({
   declarations: [
@@ -60,7 +56,8 @@ const routes: Routes = [
     MatInputModule,
     MatGridListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgImageSliderModule
   ],
   providers: [AngularFirestore, ContactService],
   exports: [RouterModule],
