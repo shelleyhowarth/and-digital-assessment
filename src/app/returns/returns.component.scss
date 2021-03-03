@@ -1,0 +1,34 @@
+@import "../../styles-variables.scss";
+
+.contact-card {
+  max-width: 65%;
+  min-height: 45%;
+  height: auto;
+  width: auto;
+  background-color: white;
+  color: black;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.label {
+  color: black;
+  font-size: medium;
+}
+
+.row {
+  display: grid;
+  margin-left: auto;
+}
+
+.submit {
+  background-color: $primary;
+  color: white;
+  width: 50%;
+}
+

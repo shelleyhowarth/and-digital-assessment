@@ -1,0 +1,40 @@
+<form [formGroup]="form" *ngIf="!submitted">
+
+  <div fxLayout="row" fxLayout.xs="column">
+
+    <div fxLayout="column" fxFlex="100%;" fxFlex.xs="80%" fxLayoutAlign="center center">
+
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label>Items to return</mat-label>
+          <mat-select multiple formControlName="items">
+            <mat-option *ngFor="let item of products" [value]="item">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="standard">
+          <mat-label class="label">Reason</mat-label>
+          <mat-select formControlName="reason" formControlName="reason">
+            <mat-option *ngFor="let reason of returnReasons" [value]="reason.value">{{reason.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div fxLayout="row" fxLayout.xs="column">
+
+    <div fxLayout="column" fxFlex="100%;" fxFlex.xs="100%" fxLayoutAlign="center center">
+      <button mat-button class="submit" [disabled]="!form.valid" (click)="onSubmit()" >Return</button>
+    </div>
+
+  </div>
+
+</form>
+
+<p *ngIf="submitted">A return label has been sent to {{data.email}}</p>
