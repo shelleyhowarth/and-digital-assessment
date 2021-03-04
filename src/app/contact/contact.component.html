@@ -63,9 +63,10 @@
 
       <div fxLayout="row" fxLayout.xs="column">
         <div fxLayout="column" fxFlex="100%;" fxFlex.xs="100%" fxLayoutAlign="center center">
-          <button mat-button class="submit" (click)="onSubmit()">Submit</button>
+          <button mat-button class="submit" [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
         </div>
       </div>
+
     </form>
     <div *ngIf="submitted" class="header">
       <p class="label">Your query has been sent!</p>

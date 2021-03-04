@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div fxLayout="row" fxLayoutAlign="center center">
+
+  <div fxFlex="80%;" fxHide.xs>
+    <mat-card class="contact-card">
+      <ng-image-slider
+      [images]="imageObject"
+      #nav
+      [imagePopup]="false"
+      [infinite]="true"
+      [imageSize]="{width: '160%', height: '65%' }"
+      [autoSlide]="{interval: 4, stopOnHover: true}"
+      >
+      </ng-image-slider>
+    </mat-card>
+
+  </div>
+
+  <div fxFlex="90%;" fxHide fxShow.xs>
+    <mat-card class="contact-card">
+      <ng-image-slider
+      [images]="imageObject"
+      #nav
+      [imagePopup]="false"
+      [infinite]="true"
+      [imageSize]="{width: '100%', height: '35%' }"
+      [autoSlide]="{interval: 4, stopOnHover: true}"
+      >
+      </ng-image-slider>
+    </mat-card>
+
+  </div>
+
+</div>

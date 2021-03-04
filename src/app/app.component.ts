@@ -25,9 +25,9 @@ export class AppComponent {
       path: '/products'
     },
     {
-      label: 'My Account',
-      icon: 'account_circle',
-      path: '/account'
+      label: 'Return an item',
+      icon: 'undo',
+      path: '/returns'
     },
     {
       label: 'Contact',

@@ -14,6 +14,7 @@ export class ContactComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   reasonChoice = null;
   submitted = false;
+  valid = false;
 
   constructor(private fb: FormBuilder, private cs: ContactService) { }
 
@@ -23,12 +24,12 @@ export class ContactComponent implements OnInit {
 
   setUpForm() {
     this.form = this.fb.group( {
-      email:[null, [Validators.email, Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
       firstName: [null,[Validators.required, this.noWhitespaceValidator, Validators.maxLength(15)]],
       lastName: ['',[Validators.required, this.noWhitespaceValidator,Validators.maxLength(15)]],
       reason: ['', Validators.required],
       description: ['', Validators.compose([Validators.required, Validators.maxLength(250), this.noWhitespaceValidator])],
-      orderRef: [null,[Validators.required, this.noWhitespaceValidator, Validators.maxLength(15)]],
+      orderRef: [null, Validators.maxLength(15)],
     })
   }
 

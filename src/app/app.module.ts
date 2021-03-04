@@ -11,7 +11,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-import { AccountComponent } from './account/account.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,20 +25,22 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ContactService } from './services/contact.service';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { ReturnsComponent } from './returns/returns.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ReturnsDialogComponent } from './returns/returns-dialog/returns-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent },
-];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AccountComponent,
     ContactComponent,
-    ProductsComponent
+    ProductsComponent,
+    ReturnsComponent,
+    ReturnsDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -60,7 +61,10 @@ const routes: Routes = [
     MatInputModule,
     MatGridListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    NgImageSliderModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [AngularFirestore, ContactService],
   exports: [RouterModule],
