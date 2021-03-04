@@ -15,7 +15,14 @@ export class ContactComponent implements OnInit {
   reasonChoice = null;
   submitted = false;
   valid = false;
-
+  dataSource = [
+    {country: 'UK', ETA: '2-3 days'},
+    {country: 'Ireland', ETA: '4-5 days'},
+    {country: 'Rest of Europe', ETA: '7-11 days'},
+    {country: 'America', ETA: '15-21 days'},
+    {country: 'Asia', ETA: '17-22 days'}
+  ]
+  displayedColumns: string[] = ['country', 'ETA'];
   constructor(private fb: FormBuilder, private cs: ContactService) { }
 
   ngOnInit(): void {
@@ -56,6 +63,10 @@ export class ContactComponent implements OnInit {
     this.cs.addContactForm(contactObj);
     this.submitted = true;
     this.form.reset();
+  }
+
+  onClick($element: any) {
+    $element.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
   }
 
 }

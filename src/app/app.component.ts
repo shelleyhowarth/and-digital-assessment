@@ -30,7 +30,7 @@ export class AppComponent {
       path: '/returns'
     },
     {
-      label: 'Contact',
+      label: 'Help',
       icon: 'contact_support',
       path: '/contact'
     }

@@ -9,6 +9,16 @@
   color: black;
   margin: auto;
   margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.help-card {
+  @extend .contact-card;
+  width: 45%
+}
+
+.title {
+  font-size: x-large;
 }
 
 .header {
@@ -27,8 +37,21 @@
 }
 
 .submit {
-  background-color: $primary;
+  background-color: #e29587;
   color: white;
   width: 50%;
+}
+
+.table {
+  margin-top: 5%;
+}
+
+table {
+  width: 30%
+}
+
+.card-text {
+  font-size: medium;
+  padding: 4%;
 }
 

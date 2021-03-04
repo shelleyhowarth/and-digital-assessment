@@ -30,6 +30,7 @@ import { ReturnsComponent } from './returns/returns.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReturnsDialogComponent } from './returns/returns-dialog/returns-dialog.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -64,7 +65,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AngularFireDatabaseModule,
     NgImageSliderModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [AngularFirestore, ContactService],
   exports: [RouterModule],
