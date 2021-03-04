@@ -40,7 +40,6 @@ export class ReturnsDialogComponent implements OnInit {
   ngOnInit(): void {
     this.setUpForm();
     this.products = this.data.products;
-    console.log(this.products);
   }
 
   setUpForm() {
