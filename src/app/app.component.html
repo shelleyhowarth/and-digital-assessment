@@ -1,6 +1,8 @@
 <header>
   <mat-toolbar fxLayout="row" color="primary">
-    <span fxFlex>Golden Shoes</span>
+    <span fxFlex>
+      Golden Shoes
+    </span>
     <ng-container *ngFor="let item of menuItems">
       <button mat-button routerLink={{item.path}} fxHide.xs>
         <mat-icon class="mr">{{item.icon}}</mat-icon>

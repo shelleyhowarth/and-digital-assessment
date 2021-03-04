@@ -10,9 +10,7 @@ export class ReturnsService {
 
   constructor(private db: AngularFirestore) { }
 
-  getOrderItems(orderRef: string) {
-    this.db.collection('orders').doc('test').valueChanges().subscribe(data => {
-      return data;
-    });
+  addReturn(returnObj: any) {
+    this.db.collection('returns').doc().set(returnObj);
   }
 }

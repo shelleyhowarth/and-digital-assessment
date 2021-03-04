@@ -35,6 +35,7 @@ export class ReturnsComponent implements OnInit {
   openDialog() {
     this.db.collection('orders').doc(this.form.value.orderRef).valueChanges().subscribe( (obj: any) => {
       if(obj) {
+        obj.orderRef = this.form.value.orderRef;
         if(obj.email === this.form.value.email) {
           this.dialog.open(ReturnsDialogComponent, {
             data: obj

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReturnsService } from 'src/app/services/returns.service';
 
 @Component({
   selector: 'app-returns-dialog',
@@ -34,7 +35,7 @@ export class ReturnsDialogComponent implements OnInit {
   products = []
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private db: AngularFirestore) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private rs: ReturnsService) { }
 
   ngOnInit(): void {
     this.setUpForm();
@@ -51,6 +52,13 @@ export class ReturnsDialogComponent implements OnInit {
 
 
   onSubmit() {
+    let returnObj = {
+      email: this.data.email,
+      orderRef: this.data.orderRef,
+      items: this.form.value.items,
+      reason: this.form.value.reason
+    }
+    this.rs.addReturn(returnObj);
     this.submitted = true;
   }
 
