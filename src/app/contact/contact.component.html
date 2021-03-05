@@ -5,12 +5,11 @@
     </mat-card-title>
   </mat-card-header>
     <mat-card-content>
-      <p class="card-text">If you have a query about the estimated time of arrival for your order, please check out our table of estimated delivery periods,   <a (click)="onClick(table)"><u>here.</u></a> </p>
+      <p class="card-text">If you have a query about the estimated time of arrival for your order, please check out our table of estimated delivery periods,   <a (click)="onClick(table)"><u>here.</u></a> Or else you can track the status of your order <a routerLink="/tracker" style="color: black"><u>here.</u></a> </p>
       <p class="card-text">If you have any other queries you can call us on our customer help line (open 9am-5pm on Monday-Friday): +353667127895</p>
       <p class="card-text">If you have a query that has not been answered and you cannot contact the help line - you can submit a contact form, <a (click)="onClick(contactForm)"><u>here.</u></a> Our customer service team aim to respond to contact forms within 2-3 business days. </p>
     </mat-card-content>
 </mat-card>
-
 
 
 <div #table fxLayout="row" fxLayoutAlign="center center" class="table">

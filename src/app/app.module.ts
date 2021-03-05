@@ -11,7 +11,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +30,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ReturnsDialogComponent } from './returns/returns-dialog/returns-dialog.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
+import { TrackerComponent } from './tracker/tracker.component';
+import { TrackerDialogComponent } from './tracker/tracker-dialog/tracker-dialog.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -39,9 +41,10 @@ import {MatTableModule} from '@angular/material/table';
     AppComponent,
     HomeComponent,
     ContactComponent,
-    ProductsComponent,
     ReturnsComponent,
-    ReturnsDialogComponent
+    ReturnsDialogComponent,
+    TrackerComponent,
+    TrackerDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -66,7 +69,8 @@ import {MatTableModule} from '@angular/material/table';
     NgImageSliderModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule
   ],
   providers: [AngularFirestore, ContactService],
   exports: [RouterModule],
