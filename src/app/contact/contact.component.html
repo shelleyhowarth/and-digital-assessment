@@ -1,75 +1,109 @@
-<mat-card class="contact-card">
+<mat-card class="help-card">
   <mat-card-header class="header">
-    <mat-card-title >
-      Contact Us
+    <mat-card-title class="title">
+      Help
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-    <form [formGroup]="form" *ngIf='!submitted'>
-
-      <div fxLayout="row" fxLayout.xs="column" >
-
-        <div fxLayout="column" fxFlex="50%;" fxFlex.xs="80%" fxLayoutAlign="center center">
-          <div>
-            <mat-form-field appearance="standard" color="primary">
-              <mat-label class="label">First name</mat-label>
-              <input matInput type="text" class="label" formControlName="firstName">
-            </mat-form-field>
-          </div>
-
-          <div>
-            <mat-form-field appearance="standard" color="primary">
-              <mat-label class="label">Last name</mat-label>
-              <input matInput type="text" class="label" formControlName="lastName">
-            </mat-form-field>
-          </div>
-
-          <div>
-            <mat-form-field appearance="standard" color="primary">
-              <mat-label class="label">Email</mat-label>
-              <input matInput type="text" class="label" formControlName="email">
-            </mat-form-field>
-          </div>
-        </div>
-
-        <div fxLayout="column" fxFlex="50%;" fxFlex.xs="80%" fxLayoutAlign="center center">
-          <div>
-            <mat-form-field appearance="standard">
-              <mat-label class="label">Reason</mat-label>
-              <mat-select formControlName="reason" [(ngModel)]="reasonChoice">
-                <mat-option value="return" >Return query</mat-option>
-                <mat-option value="complaint">Complaint</mat-option>
-                <mat-option value="product">Product query</mat-option>
-                <mat-option value="store">Store query</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div *ngIf="reasonChoice == 'return'">
-            <mat-form-field appearance="standard" color="primary">
-              <mat-label class="label">Order reference</mat-label>
-              <input matInput type="text" class="label" formControlName="orderRef">
-            </mat-form-field>
-          </div>
-
-          <div>
-            <mat-form-field appearance="standard">
-              <mat-label class="label">Description</mat-label>
-              <textarea matInput formControlName="description"></textarea>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-
-      <div fxLayout="row" fxLayout.xs="column">
-        <div fxLayout="column" fxFlex="100%;" fxFlex.xs="100%" fxLayoutAlign="center center">
-          <button mat-button class="submit" [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
-        </div>
-      </div>
-
-    </form>
-    <div *ngIf="submitted" class="header">
-      <p class="label">Your query has been sent!</p>
-    </div>
-  </mat-card-content>
+    <mat-card-content>
+      <p class="card-text">If you have a query about the estimated time of arrival for your order, please check out our table of estimated delivery periods,   <a (click)="onClick(table)"><u>here.</u></a> Or else you can track the status of your order <a routerLink="/tracker" style="color: black"><u>here.</u></a> </p>
+      <p class="card-text">If you have any other queries you can call us on our customer help line (open 9am-5pm on Monday-Friday): +353667127895</p>
+      <p class="card-text">If you have a query that has not been answered and you cannot contact the help line - you can submit a contact form, <a (click)="onClick(contactForm)"><u>here.</u></a> Our customer service team aim to respond to contact forms within 2-3 business days. </p>
+    </mat-card-content>
 </mat-card>
+
+
+<div #table fxLayout="row" fxLayoutAlign="center center" class="table">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef> Country </th>
+      <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ETA">
+      <th mat-header-cell *matHeaderCellDef> Estimated Delivery Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.ETA}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+
+<div #contactForm>
+  <mat-card class="contact-card">
+    <mat-card-header class="header">
+      <mat-card-title class="title">
+        Contact Us
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form" *ngIf='!submitted'>
+
+        <div fxLayout="row" fxLayout.xs="column" >
+
+          <div fxLayout="column" fxFlex="50%;" fxFlex.xs="80%" fxLayoutAlign="center center">
+            <div>
+              <mat-form-field appearance="standard" color="primary">
+                <mat-label class="label">First name</mat-label>
+                <input matInput type="text" class="label" formControlName="firstName">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="standard" color="primary">
+                <mat-label class="label">Last name</mat-label>
+                <input matInput type="text" class="label" formControlName="lastName">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="standard" color="primary">
+                <mat-label class="label">Email</mat-label>
+                <input matInput type="text" class="label" formControlName="email">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="column" fxFlex="50%;" fxFlex.xs="80%" fxLayoutAlign="center center">
+            <div>
+              <mat-form-field appearance="standard">
+                <mat-label class="label">Reason</mat-label>
+                <mat-select formControlName="reason" [(ngModel)]="reasonChoice">
+                  <mat-option value="return" >Return query</mat-option>
+                  <mat-option value="complaint">Complaint</mat-option>
+                  <mat-option value="product">Product query</mat-option>
+                  <mat-option value="store">Store query</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div *ngIf="reasonChoice == 'return'">
+              <mat-form-field appearance="standard" color="primary">
+                <mat-label class="label">Order reference</mat-label>
+                <input matInput type="text" class="label" formControlName="orderRef">
+              </mat-form-field>
+            </div>
+
+            <div>
+              <mat-form-field appearance="standard">
+                <mat-label class="label">Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column">
+          <div fxLayout="column" fxFlex="100%;" fxFlex.xs="100%" fxLayoutAlign="center center">
+            <button mat-button class="submit" [disabled]="!form.valid" (click)="onSubmit()">Submit</button>
+          </div>
+        </div>
+
+      </form>
+      <div *ngIf="submitted" class="header">
+        <p class="label">Your query has been sent!</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

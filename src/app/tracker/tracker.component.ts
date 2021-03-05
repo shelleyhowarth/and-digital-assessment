@@ -4,14 +4,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { ReturnsService } from '../services/returns.service';
-import { ReturnsDialogComponent } from './returns-dialog/returns-dialog.component';
+import { TrackerDialogComponent } from './tracker-dialog/tracker-dialog.component';
 
 @Component({
-  selector: 'app-returns',
-  templateUrl: './returns.component.html',
-  styleUrls: ['./returns.component.scss']
+  selector: 'app-tracker',
+  templateUrl: './tracker.component.html',
+  styleUrls: ['./tracker.component.scss']
 })
-export class ReturnsComponent implements OnInit {
+export class TrackerComponent implements OnInit {
+
   form: FormGroup = new FormGroup({});
   valid = false;
   orderRef = ''
@@ -36,17 +37,11 @@ export class ReturnsComponent implements OnInit {
     this.db.collection('orders').doc(this.form.value.orderRef).valueChanges().subscribe( (obj: any) => {
       if(obj) {
         obj.orderRef = this.form.value.orderRef;
-        if(obj.email === this.form.value.email && obj.status === "delivered") {
-          this.dialog.open(ReturnsDialogComponent, {
+        if(obj.email === this.form.value.email) {
+          this.dialog.open(TrackerDialogComponent, {
             data: obj
           });
-        } else if((obj.email === this.form.value.email && obj.status !== "delivered")) {
-          this.sb.open("Order has not been delivered yet.", "Close", {
-            duration: 2000,
-            verticalPosition: this.verticalPosition
-          })
-        }
-        else {
+        } else {
           this.sb.open("Incorrect email.", "Close", {
             duration: 2000,
             verticalPosition: this.verticalPosition
@@ -62,4 +57,5 @@ export class ReturnsComponent implements OnInit {
       }
     });
   }
+
 }

@@ -10,10 +10,13 @@ export class HomeComponent implements OnInit {
 
   imageObject: Array<object> = [
     {
-      thumbImage: '../../assets/05.jpg'
+      thumbImage: '../../assets/01.jpg'
     },
     {
-      thumbImage: '../../assets/04.jpg'
+      thumbImage: '../../assets/02.jpg'
+    },
+    {
+      thumbImage: '../../assets/03.jpg'
     }
   ];
 

@@ -20,9 +20,9 @@ export class AppComponent {
       path: 'home'
     },
     {
-      label: 'Products',
-      icon: 'shopping_basket',
-      path: '/products'
+      label: 'Track an order',
+      icon: 'redeem',
+      path: '/tracker'
     },
     {
       label: 'Return an item',
@@ -30,7 +30,7 @@ export class AppComponent {
       path: '/returns'
     },
     {
-      label: 'Contact',
+      label: 'Help',
       icon: 'contact_support',
       path: '/contact'
     }

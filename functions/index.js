@@ -15,8 +15,8 @@ exports.sendEmail = functions.firestore
             to: snap.data().email,
             message: {
               subject: "Golden Shoes Return Label",
-              text: "This is the plaintext section of the email body.",
-              html: "This is the <code>HTML</code> section of the email body.",
+              text: "Print out your return label attached.",
+              html: "Print out your return label attached.",
             },
           })
           .then(() => console.log("Queued email for delivery!"));

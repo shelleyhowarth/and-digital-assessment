@@ -1,1 +1,34 @@
+@import "../styles-variables.scss";
+
+.title {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+  color: white;
+  font-size: x-large;
+}
+
+mat-toolbar {
+  background-image: linear-gradient(to left, #d66d75,#e29587);
+}
+
+mat-icon {
+  color: $light-pink;
+}
+
+.text {
+  color: $light-pink;
+}
+
+.footer {
+  width: 100%;
+  background-color: $light-pink;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  background-position: 0% 0%;
+  position: relative;
+  bottom: 0;
+}
+
 
